@@ -1,1 +1,14 @@
-
+http://localhost:3000/registro
+{
+  "nombre": "Maria",
+  "mensaje": "Hola comunidad"
+}
+1. El servidor devuelve un mensaje de éxito (Configuración estándar)Si el programador configuró la ruta para confirmar la recepción, el servidor podría devolver un JSON como este:json{
+  "status": "success",
+  "message": "Mensaje recibido correctamente"
+}
+Usa el código con precaución.2. El servidor eco (Devuelve lo mismo que recibió)Muchos servidores de prueba o APIs devuelven los mismos datos para confirmar que los procesaron (usando res.json(req.body)):json{
+  "nombre": "Maria",
+  "mensaje": "Hola comunidad"
+}
+Usa el código con precaución.3. Error del servidor (Si no se configuró express.json())Si el servidor no tiene activo el middleware express.json(), no podrá leer tu JSON. La propiedad req.body será undefined y el servidor probablemente fallará devolviendo un error de código 500 (Internal Server Error) o un 400 (Bad Request).
